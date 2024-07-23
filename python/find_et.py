@@ -97,9 +97,8 @@ class find_et(gr.sync_block):
 
     def work(self, input_items, output_items):
         self.spectra = np.empty((0, self.turboseti_params['n_fine_chans']), dtype=np.float32, order='C')
-        for(size_t i = 0; i < noutput_items; i++) {
-            spectra[0][i] = input_items[0][i];
-          }
+        for i in range(noutput_items+1):
+            spectra[0][i] = input_items[0][i]
 
         if DEBUGGING:
             print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
