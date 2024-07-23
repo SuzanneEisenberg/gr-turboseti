@@ -99,7 +99,7 @@ class find_et(gr.sync_block):
         block_input = input_items[0]
         block_output = output_items[0]
         block_output[:] = block_input
-        spectra = block_output
+        spectra = block_input
         self.consume(0, len(block_input))
         
         if DEBUGGING:
