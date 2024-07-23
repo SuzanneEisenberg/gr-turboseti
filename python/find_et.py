@@ -96,12 +96,12 @@ class find_et(gr.sync_block):
 
 
     def work(self, input_items, output_items):
-        block_input = input_items[0]
-        block_output = output_items[0]
-        block_output[:] = block_input
-        spectra = block_input
-        self.consume(0, len(block_input))
-        
+        self.spectra = np.empty((0, self.turboseti_params['n_fine_chans']), dtype=np.float32, order='C')
+        const float* in0 = reinterpret_cast<const float*>(input_items[0]);
+        for(size_t i = 0; i < noutput_items; i++) {
+            spectra[i] = in0[i];
+          }
+
         if DEBUGGING:
             print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
 
