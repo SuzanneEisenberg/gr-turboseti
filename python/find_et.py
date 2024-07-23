@@ -79,7 +79,7 @@ class find_et(gr.sync_block):
         self.max_drift = max_drift
         self.snr = snr
         self.out_dir = out_dir
-        self.set_output_multiple(60)
+        #self.set_output_multiple(60)
         # self.flagging = flagging
         # self.obs_info = obs_info
         # self.append_output = append_output
@@ -97,7 +97,7 @@ class find_et(gr.sync_block):
 
     def work(self, input_items, output_items):
         self.spectra = np.empty((0, self.turboseti_params['n_fine_chans']), dtype=np.float32, order='C')
-        for i in range(noutput_items+1):
+        for i in range(61):
             spectra[0][i] = input_items[0][i]
             i =+1
 
