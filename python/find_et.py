@@ -98,6 +98,7 @@ class find_et(gr.sync_block):
         print ("The edits are showing up!!!!!!!")
         print ("The edits are showing up again!!!!!!")
         print ("Edits part III")
+        print ("Edits part IV!")
         if DEBUGGING:
             print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
 
