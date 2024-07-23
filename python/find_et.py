@@ -96,10 +96,12 @@ class find_et(gr.sync_block):
 
 
     def work(self, input_items, output_items):
-        print ("The edits are showing up!!!!!!!")
-        print ("The edits are showing up again!!!!!!")
-        print ("Edits part III")
-        print ("Edits part IV!")
+        block_input = input_items[0]
+        block_output = output_items[0]
+        block_output = input_items [:]
+        spectra = block_output
+
+        
         if DEBUGGING:
             print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
 
