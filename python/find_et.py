@@ -99,7 +99,7 @@ class find_et(gr.sync_block):
         spectra = np.empty((0, self.n_fine_chans), dtype=np.float32, order='C')
         i = 0
         for i in range(61):
-            print (input_items[0][i].shape)
+            print (input_items[0].shape)
             spectra[i]=input_items[0][i]
             i =+1
 
