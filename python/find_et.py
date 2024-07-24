@@ -96,11 +96,11 @@ class find_et(gr.sync_block):
 
 
     def work(self, input_items, output_items):
-        spectra = np.empty((0, self.n_fine_chans), dtype=np.float32, order='C')
+        spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         
         i = 0
         for i in range(61):
-            spectra[:]=input_items[i]
+            spectra=input_items[i]
 
             if DEBUGGING:
                 print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
