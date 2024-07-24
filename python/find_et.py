@@ -100,6 +100,7 @@ class find_et(gr.sync_block):
         
         i = 0
         for i in range(61):
+            print(input_items[1])
             spectra=input_items[i]
 
             if DEBUGGING:
