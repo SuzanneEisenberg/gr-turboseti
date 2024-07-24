@@ -100,7 +100,7 @@ class find_et(gr.sync_block):
         
         i = 0
         for i in range(61):
-            print (input_items.shape)
+            print (len(input_items))
             spectra=input_items[i]
             i =+1
 
