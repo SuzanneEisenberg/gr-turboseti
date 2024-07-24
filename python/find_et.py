@@ -79,7 +79,6 @@ class find_et(gr.sync_block):
         self.max_drift = max_drift
         self.snr = snr
         self.out_dir = out_dir
-        self.spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         #self.set_output_multiple(60)
         # self.flagging = flagging
         # self.obs_info = obs_info
@@ -97,7 +96,8 @@ class find_et(gr.sync_block):
 
 
     def work(self, input_items, output_items):
-        self.spectra[:]=input_items[0]
+        self.spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
+        spectra[:]=input_items[0]
 
         if DEBUGGING:
                 print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
