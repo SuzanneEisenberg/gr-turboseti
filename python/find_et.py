@@ -79,7 +79,7 @@ class find_et(gr.sync_block):
         self.max_drift = max_drift
         self.snr = snr
         self.out_dir = out_dir
-        #self.set_output_multiple(60)
+        self.set_output_multiple(60)
         # self.flagging = flagging
         # self.obs_info = obs_info
         # self.append_output = append_output
@@ -96,18 +96,22 @@ class find_et(gr.sync_block):
 
 
     def work(self, input_items, output_items):
-        spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
-        spectra[:]=input_items[0]
-
+        block_input = input_items[0]
         if DEBUGGING:
-                print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
+            print("DEBUG Input data shape:", block_input.shape)
+            print("DEBUG Input data:", block_input)
 
-            #spectra = input_items[0]
+        spectra = output_items[0]
         if DEBUGGING:
-                print("DEBUG Current spectra shape:", spectra.shape)
-                print("DEBUG Current spectra:", spectra)
+            print("DEBUG Output data shape:", block_output.shape)
+            print("DEBUG Output data:", block_output)
 
-                print("Initialising Clancy...")
+        spectra[:] = block_input
+        if DEBUGGING:
+            print("DEBUG New output data shape:", block_output.shape)
+            print("DEBUG New output data:", block_output)
+
+        self.consume(0, len(block_input))
 
         tstart_utc = time.time()
         # tstart_local = str(dt.date.today()) + "_" + str(dt.datetime.now().time())
