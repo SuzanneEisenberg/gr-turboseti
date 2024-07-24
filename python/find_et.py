@@ -97,7 +97,7 @@ class find_et(gr.sync_block):
 
     def work(self, input_items, output_items):
         block_input = input_items[0]
-        output_items = np.empty((0, self.n_fine_chans), dtype=np.float32, order='C')
+        output_items = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         if DEBUGGING:
             print("DEBUG Input data shape:", block_input.shape)
             print("DEBUG Input data:", block_input)
