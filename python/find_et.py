@@ -98,22 +98,19 @@ class find_et(gr.sync_block):
     def work(self, input_items, output_items):
         spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         
-        i = 0
-        for i in range(61):
-            print(input_items[1])
-            spectra=input_items[i]
+        spectra=input_items[0]
 
-            if DEBUGGING:
+        if DEBUGGING:
                 print("DEBUG findET input_items[0] shape:", input_items[0].shape) #Checks input is expected shape (60, 1e6)
 
             #spectra = input_items[0]
-            if DEBUGGING:
+        if DEBUGGING:
                 print("DEBUG Current spectra shape:", spectra.shape)
                 print("DEBUG Current spectra:", spectra)
 
                 print("Initialising Clancy...")
 
-            tstart_utc = time.time()
+        tstart_utc = time.time()
         # tstart_local = str(dt.date.today()) + "_" + str(dt.datetime.now().time())
 
         # obs_info = {'pulsar': 0, 'pulsar_found': 0, 'pulsar_dm': 0.0, 'pulsar_snr': 0.0,
@@ -121,11 +118,11 @@ class find_et(gr.sync_block):
         #                'Mean_SEFD': 0.0, 'psrflux_Sens': 0.0,
         #                'SEFDs_val': [0.0], 'SEFDs_freq': [0.0], 'SEFDs_freq_up': [0.0]}
 
-            filename_timestamped = self.source_name + "_" + self.filename + "_" + str(tstart_utc)
-            if DEBUGGING:
+        filename_timestamped = self.source_name + "_" + self.filename + "_" + str(tstart_utc)
+        if DEBUGGING:
                 print("DEBUG Filename w/ timestamp:", filename_timestamped)
 
-            clancy = DopplerFinder(filename = filename_timestamped,
+        clancy = DopplerFinder(filename = filename_timestamped,
                                source_name = self.source_name,
                                src_raj = self.src_raj,
                                src_dej = self.src_dej,
@@ -150,11 +147,10 @@ class find_et(gr.sync_block):
                                # gpu_backend=False,
                                # precision=1,
                                # gpu_id=0)
-            print("Clancy is looking for ET...")
-            clancy.find_ET(spectra)
-            print("Clancy is done.")
-            self.consume(0, len(input_items[0]))
-            i+=1
+        print("Clancy is looking for ET...")
+        clancy.find_ET(spectra)
+        print("Clancy is done.")
+        self.consume(0, len(input_items[0]))
         # Insert a way to plot hits
 
         return len(spectra)
