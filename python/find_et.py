@@ -79,7 +79,6 @@ class find_et(gr.sync_block):
         self.max_drift = max_drift
         self.snr = snr
         self.out_dir = out_dir
-        self.set_output_multiple(60)
         # self.flagging = flagging
         # self.obs_info = obs_info
         # self.append_output = append_output
@@ -93,6 +92,7 @@ class find_et(gr.sync_block):
             name="find_et",
             in_sig=[(np.float32, self.n_fine_chans)],
             out_sig=[(np.float32, self.n_fine_chans)])
+        self.set_output_multiple(60)
 
 
     def work(self, input_items, output_items):
