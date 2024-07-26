@@ -91,7 +91,7 @@ class find_et(gr.sync_block):
         gr.sync_block.__init__(self,
             name="find_et",
             in_sig=[(np.float32, self.n_fine_chans)],
-            out_sig=[(np.float32, self.n_fine_chans)])
+            out_sig=None)
         self.set_output_multiple(60)
 
 
