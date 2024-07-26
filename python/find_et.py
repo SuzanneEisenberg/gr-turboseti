@@ -101,7 +101,7 @@ class find_et(gr.sync_block):
             print("DEBUG Input data shape:", block_input.shape)
             print("DEBUG Input data:", block_input)
 
-        spectra = output_items[0]
+        spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         if DEBUGGING:
             print("DEBUG Output data shape:", block_output.shape)
             print("DEBUG Output data:", block_output)
