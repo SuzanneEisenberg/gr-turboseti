@@ -153,7 +153,7 @@ class find_et(gr.sync_block):
         print("Clancy is looking for ET...")
         clancy.find_ET(spectra)
         print("Clancy is done.")
-        self.consume(0, len(input_items[0]))
+        #self.consume(0, len(input_items[0]))
         # Insert a way to plot hits
 
         return len(spectra)
