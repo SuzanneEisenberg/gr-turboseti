@@ -103,13 +103,13 @@ class find_et(gr.sync_block):
 
         spectra = np.empty((60, self.n_fine_chans), dtype=np.float32, order='C')
         if DEBUGGING:
-            print("DEBUG Output data shape:", block_output.shape)
-            print("DEBUG Output data:", block_output)
+            print("DEBUG Output data shape:", spectra.shape)
+            print("DEBUG Output data:", spectra)
 
         spectra[:] = block_input
         if DEBUGGING:
-            print("DEBUG New output data shape:", block_output.shape)
-            print("DEBUG New output data:", block_output)
+            print("DEBUG New output data shape:", spectra.shape)
+            print("DEBUG New output data:", spectra)
 
         self.consume(0, len(block_input))
 
