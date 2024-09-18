@@ -1,5 +1,9 @@
 # A turboSETI block for GNU Radio
 
+Update, fork by Suzanne Eisenberg as part of SETI REU 2024: the find_ET block now combines the functionality of the previous find_ET and find_ET_buffer blocks. The matrix output is 60 by FFT size. 
+
+Orginal Read Me: 
+
 This is a GNU Radio Out of Tree (OOT) module for the `findET` blocks. The aim is to create a GNU Radio block that can perform turboSETI analysis on a `numpy.float32` data matrix stored in RAM.
 
 The module currently consists of 3 blocks:
